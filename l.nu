@@ -1,12 +1,12 @@
 
 # completion for l
-def "nu-complete l" [] {
-    [[value description]; [boo scarry] [yikes alert]]
-}
+#def "nu-complete l" [] {
+#    [[value description]; [boo scarry] [yikes alert]]
+#}
 
 # ls grid that shows git status modified with a red * 
 def "l" [
-  command?: string@"nu-complete l"
+#  command?: string@"nu-complete l"
   --help
 ] {
 let modified = ( ^git status o+e>| lines | find modified
