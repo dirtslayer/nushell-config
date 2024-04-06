@@ -12,9 +12,6 @@ source "./l.nu"
 $env.PROMPT_COMMAND_RIGHT = {|| ''}
 $env.config.show_banner = false
 
-if ( which hx | is-empty) {
-    alias hx = helix
-}
 $env.EDITOR = hx
 
 # may have to edit this in ~/.config/nushell/config.nu
