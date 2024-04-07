@@ -10,10 +10,11 @@ def "l" [
   --help
 ] {
 let modified = ( ^git status o+e>| lines | find modified
-| parse "{x}:{modified}"
+| parse "{x}:{modified}/{y}"
 | reject x
 | str trim
-| get modified)
+| get modified
+| uniq)
 ls 
 | upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
 | rename --column {name: fname}
