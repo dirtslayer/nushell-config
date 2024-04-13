@@ -1,4 +1,6 @@
 
+$env.config.rm.always_trash = true
+
 #windows
 #source `..\nu_scripts\custom-completions\gh\gh-completions.nu`
 #source `.\config_local_gh.nu`
@@ -28,8 +30,9 @@ keycode : char_j
 mode : [emacs, vi_insert, vi_normal]
 event: {edit: InsertNewline}
 } | append $env.config.keybindings)
+
 # source "/home/dd/.config/nushell/nupm/toolkit.nu"
 # set-nupm-env yank (had weird results not expanding .)
 
-source `./config_local_nupm.nu`
+#source `./config_local_nupm.nu`
 
