@@ -9,4 +9,4 @@ TODO: make gh stuff a nu package / provide tab completions
 
 TODO: setup with modules 
 
-[nu]: # print 'will be evaluated as a nushell command'
+[comment]: # print 'will be evaluated as a nushell command'
