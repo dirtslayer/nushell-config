@@ -50,3 +50,7 @@ def kbg [] {
     | upsert name {|r| $"($r.modifier) ($r.keycode) ($r.name)"}
     | grid
 } 
+
+def main [] {
+  l
+}
