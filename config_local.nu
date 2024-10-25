@@ -13,7 +13,7 @@ $env.config.rm.always_trash = true
 $env.PROMPT_COMMAND_RIGHT = {|| ''}
 $env.config.show_banner = false
 
-$env.EDITOR = hx
+$env.EDITOR = 'hx'
 
 # may have to edit this in ~/.config/nushell/config.nu
 # reasons: many
@@ -30,5 +30,9 @@ mode : [emacs, vi_insert, vi_normal]
 event: {edit: InsertNewline}
 } | append $env.config.keybindings)
 
-source `./config_local_nupm.nu`
+# moving to windows had to disable nupm stuff
+# for now, linux has $env.HOME
+# whereas windows has $env.HOMEDRIVE and $env.HOMEPATH instead
+
+#source `./config_local_nupm.nu`
 

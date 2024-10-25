@@ -10,7 +10,7 @@ def "l" [
   --help
 ] {
 let modified = ( ^git status o+e>| lines | find modified
-| parse "{x}:{modified}/{y}"
+| parse "{x}modified:{y}"
 | reject x
 | str trim
 | get modified
