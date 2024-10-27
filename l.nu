@@ -1,3 +1,4 @@
+#!/usr/bin/env nu
 
 # completion for l
 #def "nu-complete l" [] {
