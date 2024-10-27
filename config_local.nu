@@ -36,4 +36,5 @@ event: {edit: InsertNewline}
 # whereas windows has $env.HOMEDRIVE and $env.HOMEPATH instead
 
 #source `./config_local_nupm.nu`
+source `./config_local_pamac.nu`
 
