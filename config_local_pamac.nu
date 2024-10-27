@@ -1,4 +1,5 @@
- def "pamac search" [ 
+# package search
+def "pamac search" [ 
   term 
  ] {
   ^pamac search $term o+e>|  lines
