@@ -14,3 +14,9 @@ def "pamac search" [
      | rename pkg ver src desc
  }
 
+def "package search remove" [
+  term
+] {
+  sudo pacman -Rc ...( pamac search $term | each {|p| if $p.ver ends-with "[Installed]"  {$p
+ }} | get pkg )
+}
