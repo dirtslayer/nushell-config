@@ -8,8 +8,18 @@
 #source "./config_local_gh.nu"
 source "./l.nu"
 
+
+
 $env.config.rm.always_trash = true
 $env.PROMPT_MULTILINE_INDICATOR = {|| " " }
+
+use "/home/dd/git/nu_scripts/modules/prompt/basic-git.nu" basic-git-left-prompt
+
+$env.PROMPT_COMMAND = {||
+  let left = create_left_prompt
+  basic-git-left-prompt $left
+}
+
 $env.PROMPT_COMMAND_RIGHT = {|| ''}
 
 $env.config.show_banner = false

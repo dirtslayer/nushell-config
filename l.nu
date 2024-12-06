@@ -16,7 +16,7 @@ let modified = ( ^git status o+e>| lines | find modified
 | str trim
 | get modified
 | uniq)
-ls 
+ls -a 
 | upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
 | rename --column {name: fname}
 | upsert name {|f| $"($f.fname)($f.m)"}
