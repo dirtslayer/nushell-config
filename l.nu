@@ -10,21 +10,25 @@ def "l" [
 #  command?: string@"nu-complete l"
   --help
 ] {
-let modified =  if ( $"(pwd)/.git" | path exists ) {  
-  ( ^git status | lines | find modified
- | parse "{x}modified:{modified}"
- | reject x
- | str trim
- | get modified
- | uniq)
- } else { ([""]) }
-
-ls -a 
-| upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
-| rename --column {name: fname}
-| upsert name {|f| $"($f.fname)($f.m)"}
-| grid -c
-
+  let hasdotgit = ( $"(pwd)/.git" | path exists ) 
+  if $hasdotgit { 
+    let $modified = (
+      ^git status | lines | find modified
+      | parse "{x}modified:{modified}"
+      | reject x
+      | str trim
+      | get modified
+      | uniq
+    )
+   print $modified   
+   ls -a 
+    | upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
+    | rename --column {name: fname}
+    | upsert name {|f| $"($f.fname)($f.m)"}
+    | grid -c
+  } else {
+    ls -a | grid -c
+  }
 }
 
 # gist list grid
