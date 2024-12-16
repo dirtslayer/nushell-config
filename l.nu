@@ -10,12 +10,15 @@ def "l" [
 #  command?: string@"nu-complete l"
   --help
 ] {
-let modified = ( ^git status o+e>| lines | find modified
-| parse "{x}modified:{modified}"
-| reject x
-| str trim
-| get modified
-| uniq)
+let modified =  if ( $"(pwd)/.git" | path exists ) {  
+  ( ^git status | lines | find modified
+ | parse "{x}modified:{modified}"
+ | reject x
+ | str trim
+ | get modified
+ | uniq)
+ } else { ([""]) }
+
 ls -a 
 | upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
 | rename --column {name: fname}
