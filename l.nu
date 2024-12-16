@@ -20,7 +20,7 @@ def "l" [
       | get modified
       | uniq
     )
-   print $modified   
+   print ($modified | to text | str trim)   
    ls -a 
     | upsert m {|f| if $f.name in $modified {$"(ansi red)*(ansi reset)"}}
     | rename --column {name: fname}
