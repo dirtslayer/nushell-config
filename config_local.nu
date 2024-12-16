@@ -15,9 +15,6 @@ $env.PROMPT_MULTILINE_INDICATOR = {|| " " }
 
 #use "/home/dd/git/nu_scripts/modules/prompt/basic-git.nu" basic-git-left-prompt
 
-$env.PROMPT_COMMAND = {||
-  let left = create_left_prompt
-}
 
 $env.PROMPT_COMMAND_RIGHT = {|| ''}
 
