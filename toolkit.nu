@@ -4,4 +4,4 @@
 
 # loads my ssh options for this repo
 
-source ssh-env.nu
+use ssh-env.nu
