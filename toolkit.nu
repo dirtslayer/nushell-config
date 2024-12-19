@@ -3,5 +3,6 @@
 # which loads toolkit.nu if exists
 
 # loads my ssh options for this repo
-
-use ssh-env.nu
+export-env {
+  use ssh-env.nu
+}
