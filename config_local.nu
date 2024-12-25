@@ -63,6 +63,6 @@ $env.config.hooks.env_change = {
     }
         ]
         
-        display_output: "if (term size).columns >= 100 { table -e } else { table }" # run to display the output of a pipeline
-        command_not_found: { null } # return an error message when a command is not found
+        display_output: ["if (term size).columns >= 100 { table -e } else { table }"] # run to display the output of a pipeline
+        command_not_found: [{ null }] # return an error message when a command is not found
     }
