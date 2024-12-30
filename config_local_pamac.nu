@@ -25,6 +25,9 @@ def "package search remove" [
 def "pamac list installed" [ ] {
   ^pamac list -i 
     | lines 
-    | parse --regex '(?<a>[\w-]+)\s+(?<b>.+)\s+(?<c>\w+)\s+(?<d>.+)'
-  | rename "pkg" "ver" "src" "size"
+    | parse --regex '(?<a>[-\.\w]+)\s+(?<b>.+)\s+(?<c>\w+)\s+(?<d>.+)'
+    | upsert size {|r| $r.d | try { into filesize } | default 0}
+  | rename "pkg" "ver" "src" "d" "size"
+  | reject "d"
+  | sort-by size
 }
