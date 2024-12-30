@@ -20,3 +20,11 @@ def "package search remove" [
   sudo pacman -Rc ...( pamac search $term | each {|p| if $p.ver ends-with "[Installed]"  {$p
  }} | get pkg )
 }
+
+# package list installed
+def "pamac list installed" [ ] {
+  ^pamac list -i 
+    | lines 
+    | parse --regex '(?<a>[\w-]+)\s+(?<b>.+)\s+(?<c>\w+)\s+(?<d>.+)'
+  | rename "pkg" "ver" "src" "size"
+}
