@@ -61,6 +61,11 @@ $env.config.hooks.env_change = {
         condition: { true } 
         code: 'print $"(l)"'
     }
+    ,{
+      condition: {|_, after| $after | path join '.tool-versions' | path exists}
+        code: "open .tool-versions | parse '{tool} {ver}' | get 0 | asdf local $in.tool $in.ver
+        asdf current"
+    }
         ]
         
         display_output: ["if (term size).columns >= 100 { table -e } else { table }"] # run to display the output of a pipeline
