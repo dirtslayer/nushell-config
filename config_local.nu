@@ -1,4 +1,4 @@
-
+alias hx = flatpak run com.helix_editor.Helix
 #windows
 #source `..\nu_scripts\custom-completions\gh\gh-completions.nu`
 #source `.\config_local_gh.nu`
