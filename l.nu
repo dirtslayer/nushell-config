@@ -26,6 +26,7 @@ def "l" [
     | upsert name {|f| $"($f.fname)($f.m)"}
     | grid -c
   } else {
+    print 
     ls -a | grid -c
   }
 }

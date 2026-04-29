@@ -4,6 +4,7 @@ std path add ($env.HOME)/.cargo/bin
 std path add ($env.HOME)/.local/bin
 std path add ($env.HOME)/.opencode/bin
 source `./l.nu`
+$env.config.completions.algorithm = "fuzzy"
 $env.config.rm.always_trash = true
 $env.PROMPT_MULTILINE_INDICATOR = {|| " " }
 $env.PROMPT_COMMAND_RIGHT = {|| ''}

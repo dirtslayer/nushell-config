@@ -5,7 +5,7 @@
 # requires: wget tar grep cp
 
 # determine latest verion number
-latest=$(wget -O - -q  https://github.com/nushell/nushell/releases/latest  |  grep -oP  "nushell/nushell/releases/tag/\K[0-9]+\.+[0-9]+\.[0-9]+" -m 1)
+latest=$(sh ./show_latest_nu_version.sh)
 
 # download release tar.gz into current folder
 wget "https://github.com/nushell/nushell/releases/download/${latest}/nu-${latest}-x86_64-unknown-linux-gnu.tar.gz"
